@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-Portofolio PPG Prajabatan UNY</title>
-    <link rel="icon" href="logo-uny.png">
+    <link rel="icon" href="logo-uny.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -1708,37 +1708,50 @@
         font-size: 11.5px;
         color: var(--gold);
       }
-      .nilai-row {
+
+      /* Foto preview penilaian */
+      .preview-foto {
+        width: 100%;
+        height: 280px;
+        border-radius: var(--radius);
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        border: 1px solid var(--border);
+        margin-bottom: 18px;
+        background: var(--bg);
+      }
+      .preview-foto img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition:
+          transform 0.4s ease,
+          filter 0.3s ease;
+        filter: brightness(0.9);
+      }
+      .preview-foto:hover img {
+        transform: scale(1.03);
+        filter: brightness(1.05);
+      }
+      .preview-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
         display: flex;
         align-items: center;
-        margin-bottom: 13px;
+        justify-content: center;
+        gap: 8px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 500;
+        opacity: 0;
+        transition: opacity 0.3s ease;
       }
-      .nilai-lbl {
-        font-size: 12.5px;
-        color: var(--muted);
-        width: 160px;
-        flex-shrink: 0;
+      .preview-foto:hover .preview-overlay {
+        opacity: 1;
       }
-      .nilai-bar-bg {
-        flex: 1;
-        height: 5px;
-        background: rgba(255, 255, 255, 0.06);
-        border-radius: 99px;
-        overflow: hidden;
-        margin: 0 14px;
-      }
-      .nilai-bar-fill {
-        height: 100%;
-        border-radius: 99px;
-        background: linear-gradient(90deg, var(--gold), var(--blue2));
-      }
-      .nilai-num {
-        font-size: 13px;
-        font-weight: 700;
-        color: var(--gold);
-        min-width: 28px;
-        text-align: right;
-      }
+
       .catatan {
         margin-top: 18px;
         padding: 14px 18px;
@@ -2028,7 +2041,7 @@
         position: relative;
         width: 220px;
         height: 220px;
-        border-radius: 50%;
+        border-radius: 30%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -2042,7 +2055,7 @@
         background: var(--bg3);
         position: relative;
         z-index: 2;
-        box-shadow: 0 0 25px rgba(201,168,76,0.3);
+        box-shadow: 0 0 25px rgba(201, 168, 76, 0.3);
       }
       .photo-circle img {
         width: 100%;
@@ -2067,17 +2080,16 @@
         object-fit: contain;
         filter: drop-shadow(0 0 25px rgba(201, 168, 76, 0.35));
       }
-     
+
       @keyframes spin-slow {
         100% {
           transform: rotate(360deg);
         }
       }
       .rotating-bg {
-          width: 320px;
-          height: 320px;
-        }
-      
+        width: 320px;
+        height: 320px;
+      }
 
       /* Hobi Grid */
       .hobi-grid {
@@ -2091,11 +2103,13 @@
         border-radius: var(--radius);
         overflow: hidden;
         text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
       }
       .hobi-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
       }
       .hobi-card img {
         width: 100%;
@@ -2120,40 +2134,31 @@
       }
 
       /* Skill List */
-      .skill-list {
-        max-width: 650px;
-      }
-      .skill-item {
+      .skill-tags {
         display: flex;
-        align-items: center;
-        margin-bottom: 14px;
+        flex-wrap: wrap;
+        gap: 12px;
       }
-      .skill-label {
-        width: 160px;
+      .skill-tag {
+        padding: 8px 18px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+        border-radius: 99px;
         font-size: 14px;
         color: var(--text);
-        font-weight: 500;
-        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s ease;
       }
-      .skill-bar-bg {
-        flex: 1;
-        height: 6px;
-        background: rgba(255,255,255,0.06);
-        border-radius: 99px;
-        overflow: hidden;
-        margin: 0 14px;
-      }
-      .skill-bar-fill {
-        height: 100%;
-        border-radius: 99px;
-        background: linear-gradient(90deg, var(--gold), var(--blue2));
-      }
-      .skill-num {
-        font-size: 14px;
-        font-weight: 700;
+      .skill-tag i {
         color: var(--gold);
-        min-width: 35px;
-        text-align: right;
+        font-size: 12px;
+      }
+      .skill-tag:hover {
+        border-color: rgba(201, 168, 76, 0.4);
+        background: rgba(201, 168, 76, 0.08);
+        transform: translateY(-2px);
       }
 
       @media (max-width: 900px) {
@@ -2300,10 +2305,7 @@
       <canvas id="rain-canvas"></canvas>
       <div class="loading-content">
         <div class="loading-logo">
-          <img
-            src="logo-uny.png"
-            alt="Logo UNY"
-          />
+          <img src="logo-uny.png" alt="Logo UNY" />
         </div>
         <div class="loading-title">PPG Prajabatan</div>
         <div class="loading-sub">Program Profesi Guru</div>
@@ -2359,8 +2361,8 @@
               <p class="greeting">✦ Mahasiswa PPG Prajabatan 2025</p>
               <h1>Halo, Saya<br /><span>Adam Prasetia</span></h1>
               <p class="tagline">
-                Berasal dari Lampung Utara, kini merantau ke kota istimewa
-                untuk menempa diri menjadi seorang pendidik. Lahir di Jakarta,
+                Berasal dari Lampung Utara, kini merantau ke kota istimewa untuk
+                menempa diri menjadi seorang pendidik. Lahir di Jakarta,
                 dibesarkan di tanah Lampung yang kaya budaya, dan kini
                 mengabdikan ilmu informatika melalui Program Profesi Guru di
                 Universitas Negeri Yogyakarta.
@@ -2396,10 +2398,7 @@
                     <div class="photo-card-glow"></div>
                     <div class="photo-card-inner">
                       <div class="id-header">ID CARD</div>
-                      <img
-                        src="profile.png"
-                        alt="Foto Mahasiswa"
-                      />
+                      <img src="profile.png" alt="Foto Mahasiswa" />
                       <div class="photo-card-overlay"></div>
                       <div class="photo-card-info">
                         <div class="pname">Adam Prasetia</div>
@@ -2442,10 +2441,7 @@
           <div class="section-divider"></div>
           <div class="keunikan-grid">
             <div class="keunikan-card">
-              <img
-                src="Tapis.JPG"
-                alt="Kain Tapis"
-              />
+              <img src="Tapis.JPG" alt="Kain Tapis" />
               <div class="keunikan-overlay"><h3>🧵 Kain Tapis</h3></div>
               <div class="keunikan-desc">
                 Warisan leluhur Lampung yang ditenun dengan benang emas bermotif
@@ -2453,20 +2449,14 @@
               </div>
             </div>
             <div class="keunikan-card">
-              <img
-                src="Gajah.jpg"
-                alt="Gajah"
-              />
+              <img src="Gajah.jpg" alt="Gajah" />
               <div class="keunikan-overlay"><h3>🐘 Gajah Sumatera</h3></div>
               <div class="keunikan-desc">
                 Lampung adalah rumah bagi Gajah Sumatera yang dilindungi.
               </div>
             </div>
             <div class="keunikan-card">
-              <img
-                src="Kopi.jpg"
-                alt="Kopi"
-              />
+              <img src="Kopi.jpg" alt="Kopi" />
               <div class="keunikan-overlay">
                 <h3>☕ Kopi Robusta Lampung</h3>
               </div>
@@ -2548,17 +2538,11 @@
           <div class="section-divider"></div>
           <div class="gallery-grid">
             <div class="gallery-item">
-              <img
-                src="Presentasi.png"
-                alt="Mengajar"
-              />
+              <img src="Presentasi.png" alt="Mengajar" />
               <div class="gallery-overlay">Presentasi materi di kelas</div>
             </div>
             <div class="gallery-item">
-              <img
-                src="Praktik.png"
-                alt="Diskusi"
-              />
+              <img src="Praktik.png" alt="Diskusi" />
               <div class="gallery-overlay">Bimbingan Praktik Mandiri</div>
             </div>
             <div class="gallery-item">
@@ -2566,17 +2550,11 @@
               <div class="gallery-overlay">Praktikum laboratorium komputer</div>
             </div>
             <div class="gallery-item">
-              <img
-                src="Review.png"
-                alt="Evaluasi"
-              />
+              <img src="Review.png" alt="Evaluasi" />
               <div class="gallery-overlay">Sesi evaluasi pembelajaran</div>
             </div>
             <div class="gallery-item">
-              <img
-                src="Bimbingan.png"
-                alt="Bimbingan"
-              />
+              <img src="Bimbingan.png" alt="Bimbingan" />
               <div class="gallery-overlay">Pembimbingan individu siswa</div>
             </div>
           </div>
@@ -2709,127 +2687,185 @@
 
     <!-- ========== HALAMAN PROFIL MAHASISWA (DIISI) ========== -->
     <div id="page-profil-mahasiswa" class="page">
-      <section class="section" style="padding-top: 100px;">
+      <section class="section" style="padding-top: 100px">
         <div class="container">
           <p class="section-label">Portofolio 1</p>
           <h2 class="section-title">Profil Mahasiswa</h2>
           <div class="section-divider"></div>
 
           <!-- Bagian Atas: Foto + Deskripsi -->
-          <div class="profil-intro" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; margin-bottom: 50px;">
+          <div
+            class="profil-intro"
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              gap: 40px;
+              align-items: center;
+              margin-bottom: 50px;
+            "
+          >
             <!-- Foto Bulat dengan Rotating UNY -->
-            <div class="profil-photo-area" style="flex-shrink: 0; display: flex; justify-content: center;">
+            <div
+              class="profil-photo-area"
+              style="flex-shrink: 0; display: flex; justify-content: center"
+            >
               <div class="photo-ring-wrapper">
                 <div class="photo-circle">
                   <img src="Profile2.png" alt="Foto Profil" />
                 </div>
                 <div class="rotating-bg">
-                    <img src="logo.png" alt="UNY" />
-                  </div>
+                  <img src="logo.png" alt="UNY" />
                 </div>
               </div>
             </div>
             <!-- Deskripsi Singkat -->
-            <div class="profil-desc" style="flex: 1; min-width: 280px;">
-              <h3 style="font-family: var(--serif); font-size: 26px; color: var(--gold); margin-bottom: 12px;">Adam Prasetia</h3>
-              <p style="color: var(--muted); line-height: 1.8; font-size: 15px;">
-                Mahasiswa PPG Prajabatan Bidang Informatika Universitas Negeri Yogyakarta. 
-                Lahir di Jakarta, besar di Lampung Utara. Memiliki ketertarikan mendalam pada 
-                dunia pendidikan dan teknologi. Percaya bahwa setiap murid berhak mendapatkan 
-                pembelajaran yang bermakna dan menyenangkan.
+            <div class="profil-desc" style="flex: 1; min-width: 280px">
+              <h3
+                style="
+                  font-family: var(--serif);
+                  font-size: 26px;
+                  color: var(--gold);
+                  margin-bottom: 12px;
+                "
+              >
+                Adam Prasetia
+              </h3>
+              <p style="color: var(--muted); line-height: 1.8; font-size: 15px">
+                Mahasiswa PPG Prajabatan Bidang Informatika Universitas Negeri
+                Yogyakarta. Lahir di Jakarta, besar di Lampung Utara. Memiliki
+                ketertarikan mendalam pada dunia pendidikan dan teknologi.
+                Percaya bahwa setiap murid berhak mendapatkan pembelajaran yang
+                bermakna dan menyenangkan.
               </p>
-              <p style="color: var(--text); font-size: 14px; margin-top: 10px;">
-                <i class="fas fa-map-marker-alt" style="color: var(--gold); margin-right: 6px;"></i> 
+              <p style="color: var(--text); font-size: 14px; margin-top: 10px">
+                <i
+                  class="fas fa-map-marker-alt"
+                  style="color: var(--gold); margin-right: 6px"
+                ></i>
                 Yogyakarta, Indonesia
               </p>
             </div>
           </div>
 
           <!-- Latar Belakang -->
-          <div class="profil-section-block" style="margin-bottom: 40px;">
-            <h3 style="font-family: var(--serif); font-size: 20px; color: var(--gold2); margin-bottom: 15px;">
-              <i class="fas fa-history" style="margin-right: 10px;"></i>Latar Belakang
+          <div class="profil-section-block" style="margin-bottom: 40px">
+            <h3
+              style="
+                font-family: var(--serif);
+                font-size: 20px;
+                color: var(--gold2);
+                margin-bottom: 15px;
+              "
+            >
+              <i class="fas fa-history" style="margin-right: 10px"></i>Latar
+              Belakang
             </h3>
-            <p style="color: var(--muted); line-height: 1.8;">
-              Saya menempuh pendidikan dasar hingga menengah di Lampung Utara, kemudian melanjutkan 
-              studi S1 Informatika di Universitas Teknokrat Indonesia. Selama kuliah, saya aktif 
-              dalam berbagai kegiatan organisasi dan pernah mengajar sebagai asisten praktikum, 
-              yang menumbuhkan minat saya di bidang pendidikan. Setelah lulus, saya memutuskan 
-              untuk mengikuti Program Profesi Guru (PPG) Prajabatan agar dapat menjadi pendidik 
-              profesional yang mampu mengintegrasikan teknologi dalam pembelajaran.
+            <p style="color: var(--muted); line-height: 1.8">
+              Saya menempuh pendidikan dasar hingga menengah di Lampung Utara,
+              kemudian melanjutkan studi S1 Informatika di Universitas Teknokrat
+              Indonesia. Selama kuliah, saya aktif dalam berbagai kegiatan
+              organisasi dan pernah mengajar sebagai asisten praktikum, yang
+              menumbuhkan minat saya di bidang pendidikan. Setelah lulus, saya
+              memutuskan untuk mengikuti Program Profesi Guru (PPG) Prajabatan
+              agar dapat menjadi pendidik profesional yang mampu
+              mengintegrasikan teknologi dalam pembelajaran.
             </p>
           </div>
 
           <!-- Motivasi Mengikuti PPG -->
-          <div class="profil-section-block" style="margin-bottom: 40px;">
-            <h3 style="font-family: var(--serif); font-size: 20px; color: var(--gold2); margin-bottom: 15px;">
-              <i class="fas fa-heart" style="margin-right: 10px;"></i>Motivasi Mengikuti PPG
+          <div class="profil-section-block" style="margin-bottom: 40px">
+            <h3
+              style="
+                font-family: var(--serif);
+                font-size: 20px;
+                color: var(--gold2);
+                margin-bottom: 15px;
+              "
+            >
+              <i class="fas fa-heart" style="margin-right: 10px"></i>Motivasi
+              Mengikuti PPG
             </h3>
-            <p style="color: var(--muted); line-height: 1.8;">
-              Keinginan untuk menjadi guru yang tidak hanya mengajar, tetapi juga mendidik dan 
-              menginspirasi siswa menjadi alasan utama saya mengikuti PPG. Saya ingin mengubah 
-              paradigma bahwa mata pelajaran informatika itu sulit menjadi sesuatu yang seru dan 
-              dekat dengan kehidupan sehari-hari. Melalui PPG ini, saya berharap dapat memperdalam 
-              kompetensi pedagogik dan profesional sehingga kelak bisa menciptakan generasi yang 
-              melek teknologi dan berakhlak mulia.
+            <p style="color: var(--muted); line-height: 1.8">
+              Keinginan untuk menjadi guru yang tidak hanya mengajar, tetapi
+              juga mendidik dan menginspirasi siswa menjadi alasan utama saya
+              mengikuti PPG. Saya ingin mengubah paradigma bahwa mata pelajaran
+              informatika itu sulit menjadi sesuatu yang seru dan dekat dengan
+              kehidupan sehari-hari. Melalui PPG ini, saya berharap dapat
+              memperdalam kompetensi pedagogik dan profesional sehingga kelak
+              bisa menciptakan generasi yang melek teknologi dan berakhlak
+              mulia.
             </p>
           </div>
 
           <!-- Hobi (3 kolom dengan gambar) -->
-          <div class="profil-section-block" style="margin-bottom: 40px;">
-            <h3 style="font-family: var(--serif); font-size: 20px; color: var(--gold2); margin-bottom: 20px;">
-              <i class="fas fa-star" style="margin-right: 10px;"></i>Hobi
+          <div class="profil-section-block" style="margin-bottom: 40px">
+            <h3
+              style="
+                font-family: var(--serif);
+                font-size: 20px;
+                color: var(--gold2);
+                margin-bottom: 20px;
+              "
+            >
+              <i class="fas fa-star" style="margin-right: 10px"></i>Hobi
             </h3>
             <div class="hobi-grid">
               <div class="hobi-card">
                 <img src="hobi1.jpg" alt="Coding" />
                 <h4>Coding</h4>
-                <p>Mengeksplorasi bahasa pemrograman baru dan membangun proyek kecil.</p>
+                <p>
+                  Mengeksplorasi bahasa pemrograman baru dan membangun proyek
+                  kecil.
+                </p>
               </div>
               <div class="hobi-card">
                 <img src="hobi2.jpg" alt="Fotografi" />
                 <h4>Fotografi</h4>
-                <p>Mengabadikan momen melalui lensa, terutama landscape dan street photography.</p>
+                <p>
+                  Mengabadikan momen melalui lensa, terutama landscape dan
+                  street photography.
+                </p>
               </div>
               <div class="hobi-card">
                 <img src="hobi3.jpg" alt="Membaca" />
                 <h4>Membaca</h4>
-                <p>Menelusuri buku-buku fiksi ilmiah dan pengembangan diri di waktu senggang.</p>
+                <p>
+                  Menelusuri buku-buku fiksi ilmiah dan pengembangan diri di
+                  waktu senggang.
+                </p>
               </div>
             </div>
           </div>
 
           <!-- Skill -->
           <div class="profil-section-block">
-            <h3 style="font-family: var(--serif); font-size: 20px; color: var(--gold2); margin-bottom: 20px;">
-              <i class="fas fa-tools" style="margin-right: 10px;"></i>Skill
+            <h3
+              style="
+                font-family: var(--serif);
+                font-size: 20px;
+                color: var(--gold2);
+                margin-bottom: 20px;
+              "
+            >
+              <i class="fas fa-tools" style="margin-right: 10px"></i>Skill
             </h3>
-            <div class="skill-list">
-              <div class="skill-item">
-                <span class="skill-label">HTML / CSS</span>
-                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
-                <span class="skill-num">90%</span>
-              </div>
-              <div class="skill-item">
-                <span class="skill-label">JavaScript</span>
-                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 75%;"></div></div>
-                <span class="skill-num">75%</span>
-              </div>
-              <div class="skill-item">
-                <span class="skill-label">Python</span>
-                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 80%;"></div></div>
-                <span class="skill-num">80%</span>
-              </div>
-              <div class="skill-item">
-                <span class="skill-label">Desain UI/UX</span>
-                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 65%;"></div></div>
-                <span class="skill-num">65%</span>
-              </div>
-              <div class="skill-item">
-                <span class="skill-label">Komunikasi & Public Speaking</span>
-                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 70%;"></div></div>
-                <span class="skill-num">70%</span>
-              </div>
+            <div class="skill-tags">
+              <span class="skill-tag"
+                ><i class="fas fa-check-circle"></i> HTML / CSS</span
+              >
+              <span class="skill-tag"
+                ><i class="fas fa-check-circle"></i> JavaScript</span
+              >
+              <span class="skill-tag"
+                ><i class="fas fa-check-circle"></i> Python</span
+              >
+              <span class="skill-tag"
+                ><i class="fas fa-check-circle"></i> Desain UI/UX</span
+              >
+              <span class="skill-tag"
+                ><i class="fas fa-check-circle"></i> Komunikasi & Public
+                Speaking</span
+              >
             </div>
           </div>
         </div>
@@ -2926,10 +2962,7 @@
             <div
               class="rpp-card"
               onclick="
-                openPDF(
-                  'RPP - X Keramik A - Pertemuan 2.pdf',
-                  'RPP Siklus 1',
-                )
+                openPDF('RPP - X Keramik A - Pertemuan 2.pdf', 'RPP Siklus 1')
               "
             >
               <div class="rpp-icon"><i class="fas fa-file-pdf"></i></div>
@@ -2942,10 +2975,7 @@
             <div
               class="rpp-card"
               onclick="
-                openPDF(
-                  'RPP - X Keramik A - Pertemuan 3.pdf',
-                  'RPP Siklus 2',
-                )
+                openPDF('RPP - X Keramik A - Pertemuan 3.pdf', 'RPP Siklus 2')
               "
             >
               <div class="rpp-icon"><i class="fas fa-file-pdf"></i></div>
@@ -2958,10 +2988,7 @@
             <div
               class="rpp-card"
               onclick="
-                openPDF(
-                  'RPP - X DKV B - Pertemuan 2.pdf',
-                  'RPP Siklus 3',
-                )
+                openPDF('RPP - X DKV B - Pertemuan 2.pdf', 'RPP Siklus 3')
               "
             >
               <div class="rpp-icon"><i class="fas fa-file-pdf"></i></div>
@@ -3047,7 +3074,6 @@
 
     <!-- HALAMAN PENILAIAN GP & DPL (tetap, id page-penilaian) -->
     <div id="page-penilaian" class="page">
-      <!-- konten penilaian sama persis seperti sebelumnya, tidak diubah -->
       <section class="section canvas-wrap-section" id="penilaian-wrap-section">
         <canvas class="interactive-canvas" id="penilaian-canvas"></canvas>
         <div class="container" style="position: relative; z-index: 1">
@@ -3081,9 +3107,11 @@
               <p>Pertemuan ke-5 &amp; 6</p>
             </div>
           </div>
+
           <!-- SIKLUS 1 -->
           <div class="penilaian-panel active" id="siklus-1">
             <div class="penilaian-grid">
+              <!-- GP Card -->
               <div class="p-card">
                 <div class="penilai-head">
                   <div class="p-avatar">GP</div>
@@ -3092,19 +3120,20 @@
                     <div class="p-role">Guru Pamong</div>
                   </div>
                 </div>
-                <div class="nilai-row">
-                  <span class="nilai-lbl">Rancangan Pembelajaran</span>
-                  <div class="nilai-bar-bg">
-                    <div class="nilai-bar-fill" style="width: 85%"></div>
+                <!-- FOTO PREVIEW PENILAIAN -->
+                <div
+                  class="preview-foto"
+                  onclick="
+                    openPDF('Penilaian-1.pdf', 'Lembar Penilaian GP - Siklus 1')
+                  "
+                >
+                  <img
+                    src="foto-penilaian-gp-siklus1.jpg"
+                    alt="Preview Lembar Penilaian GP Siklus 1"
+                  />
+                  <div class="preview-overlay">
+                    <i class="fas fa-search-plus"></i> Klik untuk lihat dokumen
                   </div>
-                  <span class="nilai-num">85</span>
-                </div>
-                <div class="nilai-row">
-                  <span class="nilai-lbl">Penguasaan Materi</span>
-                  <div class="nilai-bar-bg">
-                    <div class="nilai-bar-fill" style="width: 82%"></div>
-                  </div>
-                  <span class="nilai-num">82</span>
                 </div>
                 <div class="catatan">
                   <strong>Catatan GP</strong>
@@ -3116,15 +3145,14 @@
                 <button
                   class="btn-preview-pdf"
                   onclick="
-                    openPDF(
-                      'Penilaian-1.pdf',
-                      'Lembar Penilaian GP - Siklus 1',
-                    )
+                    openPDF('Penilaian-1.pdf', 'Lembar Penilaian GP - Siklus 1')
                   "
                 >
-                  <i class="fas fa-file-pdf"></i> Lihat Dokumen
+                  <i class="fas fa-file-pdf"></i> Lihat Dokumen Lengkap
                 </button>
               </div>
+
+              <!-- DPL Card -->
               <div class="p-card">
                 <div class="penilai-head">
                   <div
@@ -3144,19 +3172,22 @@
                     <div class="p-role">Dosen Pembimbing</div>
                   </div>
                 </div>
-                <div class="nilai-row">
-                  <span class="nilai-lbl">Kesesuaian Kurikulum</span>
-                  <div class="nilai-bar-bg">
-                    <div class="nilai-bar-fill" style="width: 83%"></div>
+                <div
+                  class="preview-foto"
+                  onclick="
+                    openPDF(
+                      'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+                      'Lembar Penilaian DPL - Siklus 1',
+                    )
+                  "
+                >
+                  <img
+                    src="foto-penilaian-dpl-siklus1.jpg"
+                    alt="Preview Lembar Penilaian DPL Siklus 1"
+                  />
+                  <div class="preview-overlay">
+                    <i class="fas fa-search-plus"></i> Klik untuk lihat dokumen
                   </div>
-                  <span class="nilai-num">83</span>
-                </div>
-                <div class="nilai-row">
-                  <span class="nilai-lbl">Penggunaan Media</span>
-                  <div class="nilai-bar-bg">
-                    <div class="nilai-bar-fill" style="width: 88%"></div>
-                  </div>
-                  <span class="nilai-num">88</span>
                 </div>
                 <div class="catatan">
                   <strong>Catatan DPL</strong>
@@ -3173,12 +3204,13 @@
                     )
                   "
                 >
-                  <i class="fas fa-file-pdf"></i> Lihat Dokumen
+                  <i class="fas fa-file-pdf"></i> Lihat Dokumen Lengkap
                 </button>
               </div>
             </div>
           </div>
-          <!-- SIKLUS 2 & 3 serupa, tidak ditulis ulang demi ringkas, tetap ada di kode asli, di sini kita pertahankan struktur aslinya -->
+
+          <!-- SIKLUS 2 -->
           <div class="penilaian-panel" id="siklus-2">
             <div class="penilaian-grid">
               <div class="p-card">
@@ -3189,12 +3221,17 @@
                     <div class="p-role">Guru Pamong</div>
                   </div>
                 </div>
-                <div class="nilai-row">
-                  <span class="nilai-lbl">Rancangan Pembelajaran</span>
-                  <div class="nilai-bar-bg">
-                    <div class="nilai-bar-fill" style="width: 88%"></div>
+                <div
+                  class="preview-foto"
+                  onclick="openPDF('Penilaian-2.pdf', 'Lembar GP Siklus 2')"
+                >
+                  <img
+                    src="foto-penilaian-gp-siklus2.jpg"
+                    alt="Preview Lembar GP Siklus 2"
+                  />
+                  <div class="preview-overlay">
+                    <i class="fas fa-search-plus"></i> Klik untuk lihat dokumen
                   </div>
-                  <span class="nilai-num">88</span>
                 </div>
                 <div class="catatan">
                   <strong>Catatan GP</strong>
@@ -3202,14 +3239,9 @@
                 </div>
                 <button
                   class="btn-preview-pdf"
-                  onclick="
-                    openPDF(
-                      'Penilaian-2.pdf',
-                      'Lembar GP Siklus 2',
-                    )
-                  "
+                  onclick="openPDF('Penilaian-2.pdf', 'Lembar GP Siklus 2')"
                 >
-                  <i class="fas fa-file-pdf"></i> Lihat Dokumen
+                  <i class="fas fa-file-pdf"></i> Lihat Dokumen Lengkap
                 </button>
               </div>
               <div class="p-card">
@@ -3231,12 +3263,22 @@
                     <div class="p-role">Dosen Pembimbing</div>
                   </div>
                 </div>
-                <div class="nilai-row">
-                  <span class="nilai-lbl">Penggunaan Media</span>
-                  <div class="nilai-bar-bg">
-                    <div class="nilai-bar-fill" style="width: 90%"></div>
+                <div
+                  class="preview-foto"
+                  onclick="
+                    openPDF(
+                      'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+                      'Lembar DPL Siklus 2',
+                    )
+                  "
+                >
+                  <img
+                    src="foto-penilaian-dpl-siklus2.jpg"
+                    alt="Preview Lembar DPL Siklus 2"
+                  />
+                  <div class="preview-overlay">
+                    <i class="fas fa-search-plus"></i> Klik untuk lihat dokumen
                   </div>
-                  <span class="nilai-num">90</span>
                 </div>
                 <div class="catatan">
                   <strong>Catatan DPL</strong>
@@ -3246,32 +3288,39 @@
                   class="btn-preview-pdf"
                   onclick="
                     openPDF(
-                      'Penilaian-3.pdf',
+                      'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
                       'Lembar DPL Siklus 2',
                     )
                   "
                 >
-                  <i class="fas fa-file-pdf"></i> Lihat Dokumen
+                  <i class="fas fa-file-pdf"></i> Lihat Dokumen Lengkap
                 </button>
               </div>
             </div>
           </div>
+
+          <!-- SIKLUS 3 -->
           <div class="penilaian-panel" id="siklus-3">
             <div class="penilaian-grid">
               <div class="p-card">
                 <div class="penilai-head">
                   <div class="p-avatar">GP</div>
                   <div>
-                    <div class="p-name"></div>
+                    <div class="p-name">[Nama Guru Pamong]</div>
                     <div class="p-role">Guru Pamong</div>
                   </div>
                 </div>
-                <div class="nilai-row">
-                  <span class="nilai-lbl">Rancangan Pembelajaran</span>
-                  <div class="nilai-bar-bg">
-                    <div class="nilai-bar-fill" style="width: 92%"></div>
+                <div
+                  class="preview-foto"
+                  onclick="openPDF('Penilaian-3.pdf', 'Lembar GP Siklus 3')"
+                >
+                  <img
+                    src="foto-penilaian-gp-siklus3.jpg"
+                    alt="Preview Lembar GP Siklus 3"
+                  />
+                  <div class="preview-overlay">
+                    <i class="fas fa-search-plus"></i> Klik untuk lihat dokumen
                   </div>
-                  <span class="nilai-num">92</span>
                 </div>
                 <div class="catatan">
                   <strong>Catatan GP</strong>
@@ -3286,7 +3335,7 @@
                     )
                   "
                 >
-                  <i class="fas fa-file-pdf"></i> Lihat Dokumen
+                  <i class="fas fa-file-pdf"></i> Lihat Dokumen Lengkap
                 </button>
               </div>
               <div class="p-card">
@@ -3308,12 +3357,22 @@
                     <div class="p-role">Dosen Pembimbing</div>
                   </div>
                 </div>
-                <div class="nilai-row">
-                  <span class="nilai-lbl">Penggunaan Media</span>
-                  <div class="nilai-bar-bg">
-                    <div class="nilai-bar-fill" style="width: 94%"></div>
+                <div
+                  class="preview-foto"
+                  onclick="
+                    openPDF(
+                      'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+                      'Lembar DPL Siklus 3',
+                    )
+                  "
+                >
+                  <img
+                    src="foto-penilaian-dpl-siklus3.jpg"
+                    alt="Preview Lembar DPL Siklus 3"
+                  />
+                  <div class="preview-overlay">
+                    <i class="fas fa-search-plus"></i> Klik untuk lihat dokumen
                   </div>
-                  <span class="nilai-num">94</span>
                 </div>
                 <div class="catatan">
                   <strong>Catatan DPL</strong>
@@ -3331,7 +3390,7 @@
                     )
                   "
                 >
-                  <i class="fas fa-file-pdf"></i> Lihat Dokumen
+                  <i class="fas fa-file-pdf"></i> Lihat Dokumen Lengkap
                 </button>
               </div>
             </div>
@@ -3513,48 +3572,603 @@
 
     <!-- HALAMAN BARU: REFLEKSI AKHIR -->
     <div id="page-refleksi-akhir" class="page">
-      <section class="section">
+      <section class="section" style="padding-top: 100px">
         <div class="container">
           <p class="section-label">Portofolio 2</p>
           <h2 class="section-title">Refleksi Akhir</h2>
           <div class="section-divider"></div>
-          <p style="color: var(--muted); line-height: 1.8; max-width: 700px">
-            Tuliskan refleksi mendalam Anda setelah menjalani seluruh rangkaian
-            PPL. Apa saja pembelajaran terbesar, perubahan dalam cara mengajar,
-            dan komitmen ke depan sebagai guru profesional.
-          </p>
+
+          <div
+            style="
+              max-width: 800px;
+              margin: 0 auto;
+              color: var(--text);
+              line-height: 1.9;
+              font-size: 15.5px;
+            "
+          >
+            <p style="margin-bottom: 24px">
+              Perjalanan Praktik Pengalaman Lapangan (PPL) 1 ini adalah masa
+              yang paling membentuk saya sebagai calon guru. Ketika pertama kali
+              melangkah ke kelas, saya hanya membawa teori pedagogi dari bangku
+              kuliah dan semangat yang berkobar. Kini, saya pulang membawa lebih
+              dari itu: pengalaman nyata, kegagalan yang mendewasakan, dan
+              keyakinan bahwa mendidik adalah panggilan hati.
+            </p>
+
+            <blockquote
+              style="
+                border-left: 3px solid var(--gold);
+                padding: 18px 24px;
+                background: rgba(201, 168, 76, 0.05);
+                border-radius: 0 8px 8px 0;
+                font-family: var(--serif);
+                font-style: italic;
+                margin: 28px 0;
+                color: var(--text);
+              "
+            >
+              "Mengajar bukan tentang seberapa banyak murid mendengarkan,
+              melainkan seberapa dalam mereka memahami."
+            </blockquote>
+
+            <p style="margin-bottom: 20px">
+              Awalnya saya berpikir bahwa menguasai materi saja sudah cukup.
+              Namun, di depan kelas saya sadar bahwa sesungguhnya kunci
+              pembelajaran terletak pada hubungan — bagaimana saya mampu membaca
+              kecemasan di mata murid yang belum paham, bagaimana saya merayakan
+              keberhasilan kecil mereka, dan bagaimana saya terus belajar
+              menjadi fasilitator yang sabar dan adaptif.
+            </p>
+
+            <p style="margin-bottom: 20px">
+              Pada siklus pertama, saya banyak melakukan kesalahan: waktu yang
+              tidak terkelola, instruksi yang kurang jelas, dan terlalu cepat
+              menyampaikan materi. Namun berkat bimbingan Guru Pamong dan DPL,
+              serta refleksi yang saya lakukan setiap selesai mengajar, perlahan
+              saya menemukan ritme yang sesuai. Saya mulai menerapkan
+              pembelajaran berdiferensiasi, memanfaatkan media interaktif
+              berbasis teknologi, dan memberikan ruang lebih luas bagi murid
+              untuk bertanya dan bereksplorasi. Hasilnya, pada siklus ketiga,
+              keterlibatan murid meningkat pesat dan mereka mampu mencapai
+              tujuan pembelajaran dengan lebih baik.
+            </p>
+
+            <p style="margin-bottom: 20px">
+              Refleksi ini mengajarkan kepada saya bahwa seorang guru
+              profesional bukanlah yang sempurna sejak awal, melainkan yang
+              terus-menerus berefleksi, berinovasi, dan tidak pernah berhenti
+              belajar. Saya akan membawa semangat ini sepanjang karier saya,
+              selalu menempatkan murid sebagai pusat dari setiap keputusan
+              pengajaran, dan tidak pernah lelah menjadi versi terbaik dari diri
+              saya sendiri.
+            </p>
+
+            <p>
+              Kini, saya berkomitmen untuk terus mengasah kompetensi pedagogik,
+              profesional, sosial, dan kepribadian. Saya ingin menjadi guru yang
+              tidak hanya mentransfer ilmu, tetapi menumbuhkan rasa ingin tahu,
+              membangun karakter, dan menyiapkan generasi yang siap menghadapi
+              tantangan masa depan.
+            </p>
+          </div>
         </div>
       </section>
     </div>
 
     <!-- HALAMAN BARU: FILOSOFI MENGAJAR -->
     <div id="page-filosofi-mengajar" class="page">
-      <section class="section">
+      <section class="section" style="padding-top: 100px">
         <div class="container">
           <p class="section-label">Portofolio 2</p>
           <h2 class="section-title">Filosofi Mengajar</h2>
           <div class="section-divider"></div>
-          <p style="color: var(--muted); line-height: 1.8; max-width: 700px">
-            Jelaskan filosofi atau prinsip dasar yang Anda pegang dalam
-            mengajar. Misalnya: "Setiap anak unik dan berhak mendapatkan
-            pembelajaran yang memanusiakan hubungan."
-          </p>
+
+          <div
+            style="
+              max-width: 800px;
+              margin: 0 auto;
+              color: var(--text);
+              line-height: 1.9;
+              font-size: 15.5px;
+            "
+          >
+            <blockquote
+              style="
+                border-left: 3px solid var(--gold);
+                padding: 18px 24px;
+                background: rgba(201, 168, 76, 0.05);
+                border-radius: 0 8px 8px 0;
+                font-family: var(--serif);
+                font-style: italic;
+                margin-bottom: 28px;
+                color: var(--text);
+                font-size: 18px;
+              "
+            >
+              "Setiap murid adalah bintang dengan cahayanya sendiri — tugas guru
+              bukan memaksa mereka bersinar dengan cara yang sama, melainkan
+              membantu mereka menemukan spektrum terbaiknya."
+            </blockquote>
+
+            <p style="margin-bottom: 24px">
+              Filosofi mengajar saya berakar pada keyakinan bahwa pendidikan
+              sejati adalah proses <strong>memanusiakan manusia</strong>. Saya
+              percaya bahwa setiap murid, terlepas dari latar belakang dan
+              kemampuannya, memiliki potensi unik yang harus dihargai dan
+              dikembangkan. Oleh karena itu, pembelajaran yang saya rancang
+              selalu berorientasi pada kebutuhan murid, kontekstual, dan
+              memberdayakan.
+            </p>
+
+            <h3
+              style="
+                font-family: var(--serif);
+                color: var(--gold);
+                font-size: 20px;
+                margin-bottom: 14px;
+                margin-top: 32px;
+              "
+            >
+              <i class="fas fa-star" style="margin-right: 10px"></i>Prinsip
+              Utama Saya
+            </h3>
+
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-bottom: 32px;
+              "
+            >
+              <div
+                style="
+                  background: var(--card);
+                  border: 1px solid var(--border);
+                  border-radius: var(--radius);
+                  padding: 24px;
+                "
+              >
+                <h4
+                  style="
+                    color: var(--gold2);
+                    font-family: var(--serif);
+                    margin-bottom: 8px;
+                  "
+                >
+                  1. Berpihak pada Murid
+                </h4>
+                <p style="color: var(--muted); margin: 0">
+                  Setiap keputusan pengajaran berangkat dari pertanyaan “apa
+                  yang terbaik untuk murid saya hari ini?” Saya berusaha
+                  menciptakan lingkungan yang aman, inklusif, dan menyenangkan
+                  di mana kesalahan dianggap sebagai bagian dari belajar.
+                </p>
+              </div>
+              <div
+                style="
+                  background: var(--card);
+                  border: 1px solid var(--border);
+                  border-radius: var(--radius);
+                  padding: 24px;
+                "
+              >
+                <h4
+                  style="
+                    color: var(--gold2);
+                    font-family: var(--serif);
+                    margin-bottom: 8px;
+                  "
+                >
+                  2. Pembelajaran Kontekstual dan Bermakna
+                </h4>
+                <p style="color: var(--muted); margin: 0">
+                  Materi informatika tidak diajarkan sebagai hafalan, melainkan
+                  dihubungkan dengan kehidupan nyata murid. Saya menggunakan
+                  proyek berbasis masalah (PBL) agar mereka langsung merasakan
+                  relevansi ilmu yang dipelajari.
+                </p>
+              </div>
+              <div
+                style="
+                  background: var(--card);
+                  border: 1px solid var(--border);
+                  border-radius: var(--radius);
+                  padding: 24px;
+                "
+              >
+                <h4
+                  style="
+                    color: var(--gold2);
+                    font-family: var(--serif);
+                    margin-bottom: 8px;
+                  "
+                >
+                  3. Integrasi Teknologi yang Humanis
+                </h4>
+                <p style="color: var(--muted); margin: 0">
+                  Sebagai guru informatika, saya memandang teknologi bukan
+                  sekadar alat, tetapi jembatan untuk memperdalam pemahaman,
+                  kreativitas, dan kolaborasi. Penerapan kerangka TPACK menjadi
+                  panduan saya dalam memadukan teknologi, pedagogi, dan konten
+                  secara selaras.
+                </p>
+              </div>
+              <div
+                style="
+                  background: var(--card);
+                  border: 1px solid var(--border);
+                  border-radius: var(--radius);
+                  padding: 24px;
+                "
+              >
+                <h4
+                  style="
+                    color: var(--gold2);
+                    font-family: var(--serif);
+                    margin-bottom: 8px;
+                  "
+                >
+                  4. Refleksi Berkelanjutan
+                </h4>
+                <p style="color: var(--muted); margin: 0">
+                  Saya percaya bahwa guru yang baik adalah pembelajar sejati.
+                  Setiap selesai mengajar, saya menyempatkan diri untuk
+                  merenung: apa yang berhasil, apa yang bisa diperbaiki, dan
+                  bagaimana saya bisa melayani murid dengan lebih baik esok
+                  hari.
+                </p>
+              </div>
+            </div>
+
+            <p style="margin-bottom: 20px">
+              Filosofi ini bukan sekadar kata-kata di atas kertas, melainkan
+              kompas yang saya pegang saat mengajar. Saya ingin dikenang bukan
+              hanya sebagai pengajar yang menyampaikan materi, tetapi sebagai
+              guru yang <strong>menyalakan api semangat belajar</strong>, yang
+              mengajarkan nilai-nilai kemanusiaan, dan yang selalu percaya bahwa
+              setiap murid bisa sukses dengan caranya sendiri.
+            </p>
+
+            <p>
+              Dengan berpegang pada filosofi ini, saya berkomitmen untuk terus
+              bertumbuh, beradaptasi, dan memberikan yang terbaik bagi dunia
+              pendidikan Indonesia.
+            </p>
+          </div>
         </div>
       </section>
     </div>
 
     <!-- HALAMAN ABOUT (baru) -->
     <div id="page-about" class="page">
-      <section class="section">
+      <!-- Tentang Portofolio -->
+      <section class="section" style="padding-top: 100px">
         <div class="container">
-          <p class="section-label">Tentang</p>
-          <h2 class="section-title">About Me</h2>
+          <p class="section-label">Informasi</p>
+          <h2 class="section-title">Tentang E‑Portofolio Ini</h2>
           <div class="section-divider"></div>
-          <p style="color: var(--muted); line-height: 1.8; max-width: 700px">
-            Halaman ini berisi informasi singkat tentang pembuat portofolio,
-            kontak, serta tautan media sosial. Dapat juga diisi dengan ucapan
-            terima kasih kepada pihak yang telah mendukung.
-          </p>
+          <div
+            style="
+              max-width: 800px;
+              margin: 0 auto;
+              color: var(--text);
+              line-height: 1.9;
+              font-size: 15.5px;
+            "
+          >
+            <p style="margin-bottom: 24px">
+              <strong>E‑Portofolio PPG Prajabatan UNY</strong> ini disusun
+              sebagai dokumentasi dan refleksi perjalanan akademik selama
+              mengikuti mata kuliah
+              <strong>Praktik Pengalaman Lapangan 1 (PPL 1)</strong>. Seluruh
+              konten — mulai dari profil mahasiswa, artefak pembelajaran,
+              penilaian Guru Pamong dan Dosen Pembimbing, hingga model guru yang
+              dituju — merupakan bagian dari pemenuhan tugas
+              <span style="color: var(--gold)"
+                >Ujian Tengah Semester (UTS)</span
+              >
+              dan
+              <span style="color: var(--gold)">Ujian Akhir Semester (UAS)</span
+              >.
+            </p>
+            <p style="margin-bottom: 24px">
+              Portofolio ini dirancang sebagai wadah untuk mendemonstrasikan
+              kompetensi pedagogik, profesional, sosial, dan kepribadian yang
+              telah dikembangkan selama praktik mengajar di sekolah mitra.
+              Setiap halaman merepresentasikan tahapan pengalaman nyata yang
+              telah dilalui, dari perencanaan, pelaksanaan, evaluasi, hingga
+              refleksi akhir.
+            </p>
+            <p style="margin-bottom: 20px">
+              Melalui platform digital ini, saya berharap dapat berbagi praktik
+              baik, menginspirasi rekan sejawat, dan menjadi bagian dari
+              transformasi pendidikan yang berpihak pada murid. Semua media,
+              dokumen, dan foto yang ditampilkan adalah karya asli serta
+              dokumentasi langsung dari kegiatan PPL 1.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kontak & Media Sosial -->
+      <section
+        class="section"
+        style="background: var(--bg2); padding-top: 60px"
+      >
+        <div class="container">
+          <p class="section-label">Terhubung</p>
+          <h2 class="section-title">Kontak &amp; Media Sosial</h2>
+          <div class="section-divider"></div>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 40px;
+              max-width: 900px;
+              margin: 0 auto;
+            "
+          >
+            <!-- Info Kontak -->
+            <div
+              style="
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                padding: 28px;
+              "
+            >
+              <h3
+                style="
+                  font-family: var(--serif);
+                  color: var(--gold);
+                  margin-bottom: 20px;
+                "
+              >
+                <i class="fas fa-address-card" style="margin-right: 10px"></i
+                >Kontak Langsung
+              </h3>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 16px;
+                  font-size: 14px;
+                  color: var(--muted);
+                "
+              >
+                <div style="display: flex; align-items: center; gap: 12px">
+                  <i
+                    class="fas fa-envelope"
+                    style="color: var(--gold); width: 20px; text-align: center"
+                  ></i>
+                  <span>adamprasetia.2025@student.uny.ac.id</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px">
+                  <i
+                    class="fas fa-phone-alt"
+                    style="color: var(--gold); width: 20px; text-align: center"
+                  ></i>
+                  <span>+62 812-3456-7890</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px">
+                  <i
+                    class="fas fa-map-marker-alt"
+                    style="color: var(--gold); width: 20px; text-align: center"
+                  ></i>
+                  <span>Yogyakarta, Indonesia</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Media Sosial -->
+            <div
+              style="
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: var(--radius);
+                padding: 28px;
+              "
+            >
+              <h3
+                style="
+                  font-family: var(--serif);
+                  color: var(--gold);
+                  margin-bottom: 20px;
+                "
+              >
+                <i class="fas fa-share-alt" style="margin-right: 10px"></i>Media
+                Sosial
+              </h3>
+              <div class="social-row" style="margin-bottom: 0">
+                <a href="#" class="social-btn" title="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" class="social-btn" title="LinkedIn"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a href="#" class="social-btn" title="YouTube"
+                  ><i class="fab fa-youtube"></i
+                ></a>
+                <a href="#" class="social-btn" title="GitHub"
+                  ><i class="fab fa-github"></i
+                ></a>
+                <a href="#" class="social-btn" title="TikTok"
+                  ><i class="fab fa-tiktok"></i
+                ></a>
+              </div>
+              <p
+                style="
+                  font-size: 13px;
+                  color: var(--muted);
+                  margin-top: 18px;
+                  line-height: 1.6;
+                "
+              >
+                Ikuti perjalanan akademik dan konten edukatif lainnya melalui
+                kanal di atas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ucapan Terima Kasih -->
+      <section class="section" style="padding-top: 60px">
+        <div class="container">
+          <p class="section-label">Apresiasi</p>
+          <h2 class="section-title">Ucapan Terima Kasih</h2>
+          <div class="section-divider"></div>
+          <div
+            style="
+              max-width: 800px;
+              margin: 0 auto;
+              color: var(--text);
+              line-height: 1.9;
+              font-size: 15.5px;
+            "
+          >
+            <p style="margin-bottom: 24px">
+              Puji syukur ke hadirat Tuhan Yang Maha Esa atas selesainya
+              portofolio ini. Saya menyampaikan terima kasih sebesar‑besarnya
+              kepada semua pihak yang telah mendukung perjalanan PPL 1 dan
+              pembuatan e‑portofolio ini.
+            </p>
+            <ul style="list-style: none; padding: 0; display: grid; gap: 16px">
+              <li
+                style="
+                  background: var(--card);
+                  border: 1px solid var(--border);
+                  border-radius: var(--radius);
+                  padding: 16px 20px;
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 14px;
+                "
+              >
+                <i
+                  class="fas fa-chalkboard-teacher"
+                  style="color: var(--gold); font-size: 18px; margin-top: 3px"
+                ></i>
+                <div>
+                  <strong style="color: var(--gold2)"
+                    >Guru Pamong &amp; Dosen Pembimbing Lapangan</strong
+                  ><br />
+                  <span style="color: var(--muted); font-size: 14px"
+                    >Atas bimbingan, masukan, dan kesabaran yang luar biasa
+                    selama praktik mengajar di SMKN 5 Yogyakarta.</span
+                  >
+                </div>
+              </li>
+              <li
+                style="
+                  background: var(--card);
+                  border: 1px solid var(--border);
+                  border-radius: var(--radius);
+                  padding: 16px 20px;
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 14px;
+                "
+              >
+                <i
+                  class="fas fa-university"
+                  style="color: var(--gold); font-size: 18px; margin-top: 3px"
+                ></i>
+                <div>
+                  <strong style="color: var(--gold2)"
+                    >Universitas Negeri Yogyakarta</strong
+                  ><br />
+                  <span style="color: var(--muted); font-size: 14px"
+                    >Program Studi Pendidikan Informatika yang telah
+                    memfasilitasi seluruh rangkaian PPL 1.</span
+                  >
+                </div>
+              </li>
+              <li
+                style="
+                  background: var(--card);
+                  border: 1px solid var(--border);
+                  border-radius: var(--radius);
+                  padding: 16px 20px;
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 14px;
+                "
+              >
+                <i
+                  class="fas fa-school"
+                  style="color: var(--gold); font-size: 18px; margin-top: 3px"
+                ></i>
+                <div>
+                  <strong style="color: var(--gold2)">SMKN 5 Yogyakarta</strong
+                  ><br />
+                  <span style="color: var(--muted); font-size: 14px"
+                    >Kepala sekolah, guru, staf, dan siswa‑siswi yang telah
+                    menerima dengan hangat dan menjadi laboratorium belajar yang
+                    nyata.</span
+                  >
+                </div>
+              </li>
+              <li
+                style="
+                  background: var(--card);
+                  border: 1px solid var(--border);
+                  border-radius: var(--radius);
+                  padding: 16px 20px;
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 14px;
+                "
+              >
+                <i
+                  class="fas fa-users"
+                  style="color: var(--gold); font-size: 18px; margin-top: 3px"
+                ></i>
+                <div>
+                  <strong style="color: var(--gold2)"
+                    >Rekan Mahasiswa PPG</strong
+                  ><br />
+                  <span style="color: var(--muted); font-size: 14px"
+                    >Teman seperjuangan yang saling menyemangati dan berbagi
+                    pengalaman berharga selama PPG.</span
+                  >
+                </div>
+              </li>
+              <li
+                style="
+                  background: var(--card);
+                  border: 1px solid var(--border);
+                  border-radius: var(--radius);
+                  padding: 16px 20px;
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 14px;
+                "
+              >
+                <i
+                  class="fas fa-heart"
+                  style="color: var(--gold); font-size: 18px; margin-top: 3px"
+                ></i>
+                <div>
+                  <strong style="color: var(--gold2)"
+                    >Keluarga &amp; Sahabat</strong
+                  ><br />
+                  <span style="color: var(--muted); font-size: 14px"
+                    >Dukungan doa, motivasi, dan pengertian yang tak ternilai
+                    harganya.</span
+                  >
+                </div>
+              </li>
+            </ul>
+            <p
+              style="margin-top: 28px; font-style: italic; color: var(--gold2)"
+            >
+              “Tak ada karya besar yang lahir tanpa sentuhan tangan‑tangan tulus
+              di sekitarnya. Terima kasih telah menjadi bagian dari cerita ini.”
+            </p>
+          </div>
         </div>
       </section>
     </div>
