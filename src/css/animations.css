@@ -1,0 +1,58 @@
+/* INTERACTIVE SCROLL ANIMATIONS */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--blue2));
+  z-index: 1001;
+  transition: width 0.1s ease;
+  border-radius: 0 2px 2px 0;
+}
+.reveal {
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+.reveal.fade-up {
+  transform: translateY(40px);
+}
+.reveal.fade-left {
+  transform: translateX(-40px);
+}
+.reveal.fade-right {
+  transform: translateX(40px);
+}
+.reveal.zoom-in {
+  transform: scale(0.85);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translate(0) scale(1);
+}
+
+/* ==== EFEK REVEAL TAMBAHAN ==== */
+.reveal {
+  will-change: transform, opacity;
+}
+.reveal.fade-down {
+  transform: translateY(-24px);
+}
+.reveal.flip-up {
+  transform: perspective(900px) rotateX(12deg) translateY(45px);
+}
+.reveal.grow-x {
+  transform: scaleX(0.2);
+  transform-origin: left center;
+}
+.reveal.active {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
